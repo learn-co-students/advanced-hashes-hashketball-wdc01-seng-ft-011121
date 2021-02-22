@@ -1,3 +1,5 @@
+require 'pry'
+
 # Write your code below game_hash
 def game_hash
   {
@@ -126,4 +128,32 @@ def game_hash
   }
 end
 
-# Write code here
+def all_players
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+def num_points_scored(player_name)
+  # helper method: gather all the players
+  all_players
+
+  # does `player_name` exist in players array
+  all_players.map do |player|
+    if player[:player_name] == player_name
+    # return the number of points the player
+      return player[:points]
+    end
+  end
+end
+
+def shoe_size (player_name)
+  # helper method: gather all the players
+  all_players
+
+  # does `player_name` exist in players array
+  all_players.map do |player|
+    if player[:player_name] == player_name
+    # return the shoe size the player
+      return player[:shoe]
+    end
+  end
+end
